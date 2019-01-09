@@ -1646,10 +1646,10 @@ static int do_remux( remuxer_t *remuxer )
                         out_track->last_sample_dts        = last_sample_dts;
                         num_consecutive_sample_skip       = 0;
                         total_media_size                 += sample_size;
-                        /* Print, per 4 megabytes, total size of imported media. */
-                        if( (total_media_size >> 22) > progress_pos )
+                        /* Print, per 1 kilobytes, total size of imported media. */
+                        if( (total_media_size >> 10) > progress_pos )
                         {
-                            progress_pos = total_media_size >> 22;
+                            progress_pos = total_media_size >> 10;
                             eprintf( "Importing: %"PRIu64" bytes\r", total_media_size );
                         }
                     }

@@ -1195,10 +1195,10 @@ static int do_mux( muxer_t *muxer )
                     total_media_size += sample_size;
                     ++ out_track->current_sample_number;
                     num_consecutive_sample_skip = 0;
-                    /* Print, per 4 megabytes, total size of imported media. */
-                    if( (total_media_size >> 22) > progress_pos )
+                    /* Print, per 1 kilobytes, total size of imported media. */
+                    if( (total_media_size >> 10) > progress_pos )
                     {
-                        progress_pos = total_media_size >> 22;
+                        progress_pos = total_media_size >> 10;
                         eprintf( "Importing: %"PRIu64" bytes\r", total_media_size );
                     }
                 }
